@@ -1,11 +1,6 @@
 const {ApolloServer} = require('apollo-server');
 const typeDefs = require('./schema');
 
-const server = new ApolloServer({
-    typeDefs,
-    mocks
-});
-
 /*
 The mocks object below contains functions that provide the mocked data 
 we want the server to return for each queried field.
@@ -27,6 +22,11 @@ const mocks = {
       modulesCount: () => 6
     })
   };
+
+const server = new ApolloServer({
+    typeDefs,
+    mocks
+});
 
 server.listen().then(() => {
     console.log(`
